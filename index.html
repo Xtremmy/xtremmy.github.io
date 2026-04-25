@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SuperMaxFan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9fa">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icon.svg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      font-size: 16px;
+      margin: 20px;
+      background: #f8f9fa;
+      color: #212529;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,.08);
+      padding: 20px;
+      margin-bottom: 16px;
+      max-width: 520px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #212529;
+    }
+
+    .value {
+      font-size: 1rem;
+      color: #495057;
+      line-height: 1.45;
+    }
+
+    button, a.launch-btn {
+      display: inline-block;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      padding: 10px 14px;
+      font-size: 16px;
+      border: 1px solid #ced4da;
+      border-radius: 0.75rem;
+      background: #fff;
+      cursor: pointer;
+      box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,.06);
+      text-decoration: none;
+      color: #212529;
+    }
+
+    .muted {
+      color: #6c757d;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #ced4da;
+      background: #fff;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="pill">Launcher cached for offline use</div>
+
+  <div class="card">
+    <div class="card-title">SuperMaxFan</div>
+    <div class="value">
+      1. Connect Wi-Fi to <b>SuperMaxFan-AP</b><br>
+      2. Open the device UI
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Open Device</div>
+    <a class="launch-btn" href="http://supermaxfan.local" target="_blank" rel="noopener">Open supermaxfan.local</a>
+    <a class="launch-btn" href="http://192.168.4.1" target="_blank" rel="noopener">Open 192.168.4.1</a>
+    <div class="muted">
+      Use the IP fallback if the Bonjour hostname does not resolve.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Notes</div>
+    <div class="value">
+      This page is only the launcher. The live controller runs from the device itself.
+    </div>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(console.error);
+      });
+    }
+  </script>
+</body>
+</html>
